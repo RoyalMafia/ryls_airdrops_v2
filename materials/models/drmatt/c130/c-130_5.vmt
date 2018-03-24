@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/drmatt/c130/C-130_5"
+	"$bumpmap" "models/drmatt/c130/C-130_nm"
+	"$halflambert" 1
+	"$phong" "1"
+	"$phongexponent" "5"
+	"$phongboost" "2.5"	
+	"$phongfresnelranges"	"[ .3 1 1 ]"
+
+
+	"$envmap" "env_cubemap"
+	"$envmapcontrast" "1"
+	"$envmaptint" "[ .01 .01 .01 ]"
+}
