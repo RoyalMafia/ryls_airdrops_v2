@@ -25,10 +25,13 @@ ryl_airdrop_config = {}
 
 	QUALITY TABLE
 	Edits the qualities and the spawn chance for them.
+	spawnChance (REQUIRED) - The chance of the quality being selected
 
-	itemColour - This is the colour for the quality used in the UI
+	printName (REQUIRED)   - The name displayed in the airdrop menu
 
-	reqRank    - If you want to have a quality that requires a certain rank. This only affects player called in drops
+	itemColour (REQUIRED)  - This is the colour for the quality used in the airdrop menu
+
+	reqRank (OPTIONAL)     - If you want to have a quality that requires a certain rank. This only affects player called in drops
 	You can either state a single rank or include multiple ranks in a table. e.g. "rank1" or { "rank1", "rank2" } 
 ]]--
 
@@ -56,7 +59,7 @@ ryl_airdrop_config.qualities = {
 
 	itemQuality (REQUIRED) - What quality category it falls under
 
-	itemFunc (OPTIONAL)   - Called when spawning. Passes the entity and the player. Can be used for many things
+	itemFunc (OPTIONAL)    - Called when spawning. Passes the entity and the player. Can be used for many things
 
 ]]--
 
