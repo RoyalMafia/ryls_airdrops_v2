@@ -12,7 +12,9 @@ function ENT:Initialize()
 end
 
 function ENT:Think()
-	self:createParticle( self.PE, self:GetPos() + self:GetAngles():Up() * 9, Vector( 0, 0, 30 + math.cos( CurTime() * math.random( 1, 5 ) ) * 3 ) + self:GetAngles():Up() * 10, 5, Color( 220, 40, 40 ) )
+	if self:GetisSleeping() then
+		self:createParticle( self.PE, self:GetPos() + self:GetAngles():Up() * 9, Vector( 0, 0, 30 + math.cos( CurTime() * math.random( 1, 5 ) ) * 3 ) + self:GetAngles():Up() * 10, 5, Color( 220, 40, 40 ) )
+	end
 end
 
 function ENT:Draw()
