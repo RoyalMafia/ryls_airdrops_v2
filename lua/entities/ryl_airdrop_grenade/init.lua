@@ -22,12 +22,17 @@ function ENT:Initialize()
 
 	-- ENT VARIABLES
 	self.hasCalledDrop = false
+	
+	-- Network Vars
+	self:SetisSleeping( false )
 end
 
 function ENT:Think()
 	if !self.hasCalledDrop and self.phys:IsAsleep() then
-		self:CallInDrop()
+		-- Starts the smoke gen clientside
+		self:SetisSleeping( true )
 
+		self:CallInDrop()
 		self.hasCalledDrop = true
 
 		-- Once we've called in the drop we're no longer needed
