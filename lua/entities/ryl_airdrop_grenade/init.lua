@@ -22,7 +22,7 @@ function ENT:Initialize()
 
 	-- ENT VARIABLES
 	self.hasCalledDrop = false
-	
+
 	-- Network Vars
 	self:SetisSleeping( false )
 end
@@ -33,6 +33,7 @@ function ENT:Think()
 		self:SetisSleeping( true )
 
 		self:CallInDrop()
+
 		self.hasCalledDrop = true
 
 		-- Once we've called in the drop we're no longer needed
@@ -49,16 +50,8 @@ end
 ]]--
 
 function ENT:CallInDrop()
-	-- Get the boundary of the map then calculate the middle
-	local mapBoundsMin, mapBoundsMax = game.GetWorld():GetModelBounds()
-	local mapCenter = Vector( math.sqrt( mapBoundsMax.x - mapBoundsMin.x )*2, math.sqrt( mapBoundsMax.y - mapBoundsMin.y )*2, 0 )
-	
-	-- Get a random direction then find the position on a circle inside the map boundaries
-	local randDirection = math.Rand( 0, 360 )
-	local flightStartPos = mapCenter + Vector( math.cos( randDirection ) * math.abs( mapBoundsMin.x - mapBoundsMax.x )/2, math.sin( randDirection ) * math.abs( mapBoundsMin.x - mapBoundsMax.x )/2, 500 )
-	
-	-- Calculate the angle between the spawn position and drop position so plane flies towards the drop
-	local flightDirection = ( Vector( self:GetPos().x, self:GetPos().y, 0 ) - Vector( flightStartPos.x, flightStartPos.y, 0 ) ):Angle()
+	-- Get position and direction
+	local flightStartPos, flightDirection = getPlaneStartPos( self:GetPos() )
 
 	-- Spawn the plane in and set its drop position
 	local planeEnt = ents.Create( "ryl_airdrop_plane" )
