@@ -85,7 +85,7 @@ end
 ]]--
 
 function ENT:spawnProps()
-	-- All of these offsets & function is from WAC, so big up Dr. Matt
+	-- All of these offsets & function is from WAC, so I have Dr. Matt to thank for this part
 	local propOffsets = {
 		Vector(140,-228,189.5),
 		Vector(140,452,198),
@@ -93,7 +93,7 @@ function ENT:spawnProps()
 		Vector(140,-457,198)
 	}
 
-	-- Create the prop entities here
+	-- Create the prop entities
 	for k, v in pairs( propOffsets ) do
 		self.Rotors[k] = ents.Create( "prop_physics" )
 		self.Rotors[k]:SetModel( "models/drmatt/c130/propellor.mdl" )
